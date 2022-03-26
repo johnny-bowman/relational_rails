@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/crags/:id', to: 'crags#show'
 
   get '/climbs', to: 'climbs#index'
+  get '/climbs/:id', to: 'climbs#show'
 
 end
