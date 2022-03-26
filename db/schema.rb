@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_175941) do
+ActiveRecord::Schema.define(version: 2022_03_26_190151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climbs", force: :cascade do |t|
+    t.string "name"
+    t.integer "pitches"
+    t.boolean "trad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "crag_id"
+    t.index ["crag_id"], name: "index_climbs_on_crag_id"
+  end
 
   create_table "crags", force: :cascade do |t|
     t.string "name"
@@ -23,4 +33,5 @@ ActiveRecord::Schema.define(version: 2022_03_26_175941) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "climbs", "crags"
 end
