@@ -8,3 +8,5 @@
   <p><strong>Pitches:</strong></p><%= climb.pitches %>
   <p><strong>Trad:</strong></p><%= climb.trad %>
 <% end %>
+
+<%= button_to "Create Climb", "/crags/#{@crag.id}/climbs/new", method: :get%>
