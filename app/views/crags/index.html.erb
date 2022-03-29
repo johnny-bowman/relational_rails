@@ -1,3 +1,9 @@
+<ul>
+  <li><a href="/climbs">All Climbs</a></li>
+  <!-- <li><a href="/crags/new">New Crag</a></li> -->
+</ul>
+
+<%= link_to "New Crag", "/crags/new" %>
 <h1>Crags</h1>
 <% @crags.each do |crag| %>
 <h3><%= crag.name %> - Created At: <%= crag.created_at %></h3>

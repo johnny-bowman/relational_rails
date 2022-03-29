@@ -1,0 +1,10 @@
+<%= form_with url: "/crags", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :year_round %>
+  <%= form.text_field :year_round %>
+  <%= form.label :outhouses %>
+  <%= form.text_field :outhouses %>
+
+  <%= form.submit "Create Crag" %>
+<% end %>
