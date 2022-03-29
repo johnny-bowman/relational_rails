@@ -1,0 +1,10 @@
+<%= form_with url: "/crags/#{@crag.id}/climbs", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :pitches %>
+  <%= form.text_field :pitches %>
+  <%= form.label :trad %>
+  <%= form.text_field :trad %>
+
+  <%= form.submit "Create Crag" %>
+<% end %>
