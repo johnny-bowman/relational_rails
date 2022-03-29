@@ -1,3 +1,11 @@
+<ul>
+  <li><a href="/crags">Crags</a></li>
+  <li><a href="/climbs">All Climbs</a></li>
+  <li><a href="/crags/<%=@crag.id%>/climbs">Climbs at This Crag</a></li>
+</ul>
+
+
+
 <h1><%= @crag.name %></h1>
 <h3>Climbs:</h3><p><%= @crag.climbs.count %></p>
 <h3>Year Round?</h3><p><%= @crag.year_round %></p>
