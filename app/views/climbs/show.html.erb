@@ -6,3 +6,5 @@
 <h1><%= @climb.name %></h1>
 <h3>Pitches:</h3><p><%= @climb.pitches %></p>
 <h3>Trad?</h3><p><%= @climb.trad %></p>
+<br>
+<%= button_to "Update Climb", "/climbs/#{@climb.id}/edit", method: :get %>

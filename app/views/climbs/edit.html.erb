@@ -1,0 +1,10 @@
+<%= form_with url: "/climbs/#{@climb.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :trad %>
+  <%= form.text_field :trad %>
+  <%= form.label :pitches %>
+  <%= form.text_field :pitches %>
+
+  <%= form.submit "Update Climb" %>
+<% end %>
