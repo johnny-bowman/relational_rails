@@ -4,9 +4,9 @@
   <li><a href="/crags/<%=@crag.id%>/climbs">Climbs at This Crag</a></li>
 </ul>
 
-
-
 <h1><%= @crag.name %></h1>
 <h3>Climbs:</h3><p><%= @crag.climbs.count %></p>
 <h3>Year Round?</h3><p><%= @crag.year_round %></p>
 <h3>Outhouses:</h3><p><%= @crag.outhouses %></p>
+
+<%= button_to "Update Crag", "/crags/#{@crag.id}/edit", method: :get %>

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/crags/new', to: 'crags#new'
   get '/crags/:id', to: 'crags#show'
   get '/crags/:crag_id/climbs', to: 'crag_climbs#index'
-  get '/crags/:crag_id/edit', to: 'crags#update'
+  get '/crags/:crag_id/edit', to: 'crags#edit'
   post '/crags', to: 'crags#create'
+  patch '/crags/:crag_id', to: 'crags#update'
 
 
   get '/climbs', to: 'climbs#index'
