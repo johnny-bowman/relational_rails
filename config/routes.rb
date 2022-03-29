@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get '/climbs/:id', to: 'climbs#show'
   get '/crags/:crag_id/climbs/new', to: 'crag_climbs#new'
   post "/crags/:crag_id/climbs", to: 'crag_climbs#create'
+  get '/climbs/:id/edit', to: 'climbs#edit'
+  patch "/climbs/:id", to: 'climbs#update'
 end
