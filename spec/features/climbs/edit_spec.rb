@@ -24,7 +24,7 @@ RSpec.describe 'Climbs update' do
 
   it 'updates a Climb' do
     visit "/climbs/#{@climb.id}"
-    
+
     expect(page).to have_content("Test Fun Route")
     expect(page).to_not have_content("Updated Fun Route")
 

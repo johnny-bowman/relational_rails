@@ -1,5 +1,7 @@
 require 'rails_helper'
-
+# As a visitor
+# When I visit the child index
+# Then I only see records where the boolean column is `true`
 RSpec.describe 'the climbs index page' do
   before :each do
     @crag = Crag.create!(name: 'Test Smith Rock', year_round: true, outhouses: 2)
@@ -10,11 +12,11 @@ RSpec.describe 'the climbs index page' do
   it 'shows all the climbs' do
     visit "/climbs"
 
-    expect(page).to have_content(@fun_route.name)
+    expect(page).to_not have_content(@fun_route.name)
+    expect(page).to_not have_content(@fun_route.pitches)
+    expect(page).to_not have_content(@fun_route.trad)
     expect(page).to have_content(@long_route.name)
-    expect(page).to have_content(@fun_route.pitches)
     expect(page).to have_content(@long_route.pitches)
-    expect(page).to have_content(@fun_route.trad)
     expect(page).to have_content(@long_route.trad)
   end
 
