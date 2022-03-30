@@ -3,6 +3,8 @@ class CragClimbsController < ApplicationController
     @crag = Crag.find(params[:crag_id])
     if params[:order]
       @climbs = @crag.climbs.sort_alphabetically
+    elsif params[:number_of_pitches]
+      @climbs = @crag.climbs.sort_by_pitches(params[:number_of_pitches])
     else
       @climbs = @crag.climbs
     end

@@ -48,4 +48,23 @@ RSpec.describe 'Crag climbs index' do
     expect('American Flarelines').to appear_before('Test Good Route')
     expect('Test Good Route').to appear_before('Test Too Big to Flail')
   end
+
+  it "limits results to records over given number of pitches" do
+    @fun_route = @crag.climbs.create!(name: 'Test Fun Route', pitches: 4, trad: true)
+
+    visit "/crags/#{@crag.id}/climbs"
+    # save_and_open_page
+    expect(page).to have_content('Test Fun Route')
+    expect(page).to have_content('Test Too Big to Flail')
+    expect(page).to have_content('Test Good Route')
+    # save_and_open_page
+    fill_in "Number of pitches", with: "2"
+    click_button "Only return records with more than 'number' of pitches"
+    # save_and_open_page
+    expect(current_path).to eq("/crags/#{@crag.id}/climbs")
+
+    expect(page).to have_content('Test Fun Route')
+    expect(page).to have_content('Test Too Big to Flail')
+    expect(page).to_not have_content('Test Good Route')
+  end
 end

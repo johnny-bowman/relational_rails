@@ -26,7 +26,19 @@ RSpec.describe "Climbs Delete" do
     expect(page).to have_content(@long_route.name)
 
     click_link("Delete Climb", match: :first)
-  
+
+    expect(current_path).to eq("/climbs")
+    expect(page).to_not have_content(@fun_route.name)
+    expect(page).to have_content(@long_route.name)
+  end
+
+  it 'delete climbs from crags_climbs_index page' do
+    visit "/crags/#{@crag.id}/climbs"
+    expect(page).to have_content(@fun_route.name)
+    expect(page).to have_content(@long_route.name)
+
+    click_link("Delete Climb", match: :first)
+
     expect(current_path).to eq("/climbs")
     expect(page).to_not have_content(@fun_route.name)
     expect(page).to have_content(@long_route.name)

@@ -9,7 +9,7 @@ RSpec.describe 'Crags update' do
     visit "/crags/#{@crag.id}"
     # save_and_open_page
 
-    click_button 'Update Crag'
+    click_link 'Update Crag'
     expect(current_path).to eq("/crags/#{@crag.id}/edit")
   end
 
@@ -24,7 +24,7 @@ RSpec.describe 'Crags update' do
     visit "/crags/#{@crag.id}"
     expect(page).to have_content("Test Smith Rock")
 
-    click_button 'Update Crag'
+    click_link 'Update Crag'
 
     fill_in "Name", with: "Updated Smith Rock"
     fill_in "Year round?", with: "true"

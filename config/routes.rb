@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/crags', to: 'crags#create'
   patch '/crags/:crag_id', to: 'crags#update'
   delete '/crags/:crag_id', to: 'crags#delete'
+  get '/crags/:crag_id/climbs', to: 'crag_climbs#index'
 
 
   get '/climbs', to: 'climbs#index'
