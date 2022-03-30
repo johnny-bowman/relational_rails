@@ -6,5 +6,5 @@
 <%= link_to "New Crag", "/crags/new" %>
 <h1>Crags</h1>
 <% @crags.each do |crag| %>
-<h3><%= crag.name %> - Created At: <%= crag.created_at %> <%= link_to "Update Crag", "/crags/#{crag.id}/edit", method: :get%></h3>
+<h3><%= crag.name %> - Created At: <%= crag.created_at %> <%= link_to "Update Crag", "/crags/#{crag.id}/edit", method: :get%> <%= link_to "Delete Crag", "/crags/#{crag.id}", method: :delete %></h3>
 <% end %>

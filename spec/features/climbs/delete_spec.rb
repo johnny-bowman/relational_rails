@@ -11,10 +11,10 @@ RSpec.describe "Climbs Delete" do
     visit "/climbs"
     expect(page).to have_content('Test Fun Route')
     expect(page).to have_content('Test Long Route')
-    save_and_open_page
+
     visit "/climbs/#{@fun_route.id}"
     click_link "Delete Climb"
-    save_and_open_page
+  
     expect(current_path).to eq("/climbs")
     expect(page).to_not have_content('Test Fun Route')
     expect(page).to have_content('Test Long Route')

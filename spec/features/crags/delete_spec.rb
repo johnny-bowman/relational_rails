@@ -8,13 +8,25 @@ RSpec.describe 'Crags delete' do
     @long_route = @smith_rock.climbs.create!(name: 'Test Long Route', pitches: 7, trad: true)
   end
 
-  it 'delete crags' do
+  it 'delete crags from show page' do
     visit "/crags"
     expect(page).to have_content(@smith_rock.name)
     expect(page).to have_content(@j_tree.name)
 
     visit "/crags/#{@smith_rock.id}"
     click_link "Delete Crag"
+
+    expect(current_path).to eq("/crags")
+    expect(page).to_not have_content(@smith_rock.name)
+    expect(page).to have_content(@j_tree.name)
+  end
+
+  it 'delete crags from index page' do
+    visit "/crags"
+    expect(page).to have_content(@smith_rock.name)
+    expect(page).to have_content(@j_tree.name)
+  
+    click_link("Delete Crag", match: :first)
 
     expect(current_path).to eq("/crags")
     expect(page).to_not have_content(@smith_rock.name)
