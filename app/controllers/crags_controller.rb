@@ -20,13 +20,21 @@ class CragsController < ApplicationController
     @crag = Crag.find(params[:crag_id])
   end
 
-  def crag_params
-    params.permit(:name, :outhouses, :year_round)
-  end
-
   def update
     crag = Crag.find(params[:crag_id])
     crag.update(crag_params)
     redirect_to "/crags/#{crag.id}"
   end
+
+  def delete
+    crag = Crag.find(params[:crag_id])
+    crag.climbs.destroy_all
+    crag.destroy
+    redirect_to "/crags"
+  end
+
+  private
+    def crag_params
+      params.permit(:name, :outhouses, :year_round)
+    end
 end

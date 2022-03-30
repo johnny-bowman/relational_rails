@@ -10,3 +10,4 @@
 <h3>Outhouses:</h3><p><%= @crag.outhouses %></p>
 
 <%= button_to "Update Crag", "/crags/#{@crag.id}/edit", method: :get %>
+<%= link_to "Delete Crag", "/crags/#{@crag.id}", method: :delete, local: true %>

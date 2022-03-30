@@ -8,3 +8,5 @@
 <h3>Trad?</h3><p><%= @climb.trad %></p>
 <br>
 <%= button_to "Update Climb", "/climbs/#{@climb.id}/edit", method: :get %>
+<br>
+<%= link_to "Delete Climb", "/climbs/#{@climb.id}", method: :delete %>

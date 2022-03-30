@@ -20,4 +20,9 @@ class ClimbsController < ApplicationController
   def climb_params
     params.permit(:name, :trad, :pitches)
   end
+
+  def delete
+    Climb.destroy(params[:id])
+    redirect_to "/climbs"
+  end
 end
