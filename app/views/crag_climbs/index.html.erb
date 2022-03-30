@@ -4,10 +4,19 @@
 </ul>
 
 <% @climbs.each do |climb| %>
-  <h2><%= climb.name %><%= link_to "Update Climb", "/climbs/#{climb.id}/edit", method: :get %></h2>
+  <h2><%= climb.name %> <%= link_to "Update Climb", "/climbs/#{climb.id}/edit", method: :get %> <%= link_to "Delete Climb", "/climbs/#{climb.id}", method: :delete %></h2>
   <p><strong>Pitches:</strong></p><%= climb.pitches %>
   <p><strong>Trad:</strong></p><%= climb.trad %>
 <% end %>
-
-<%= link_to "Sort Climbs Alphabetically", "/crags/#{@crag.id}/climbs?order=alphabetical", method: :get %>
-<%= button_to "Create Climb", "/crags/#{@crag.id}/climbs/new", method: :get%>
+<br>
+<br>
+<%= form_with url: "/crags/#{@crag.id}/climbs?pitches=1", method: :get, local: true do |form|  %>
+  <%= form.label :number_of_pitches %>
+  <%= form.number_field :number_of_pitches %>
+  <%= form.submit "Only return records with more than 'number' of pitches" %>
+<% end %>
+<br>
+<%= link_to "Sort Climbs Alphabetically", "/crags/#{@crag.id}/climbs?order=alphabetical", method: :get, local: true%>
+<br>
+<br>
+<%= link_to "Create Climb", "/crags/#{@crag.id}/climbs/new", method: :get%>
