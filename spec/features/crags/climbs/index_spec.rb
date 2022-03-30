@@ -1,9 +1,5 @@
 require 'rails_helper'
-# As a visitor
-# When I visit the Parent's children Index Page
-# Then I see a link to sort children in alphabetical order
-# When I click on the link
-# I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+
 RSpec.describe 'Crag climbs index' do
   before :each do
     @crag = Crag.create!(name: 'Test Smith Rock', year_round: true, outhouses: 2)
@@ -53,14 +49,14 @@ RSpec.describe 'Crag climbs index' do
     @fun_route = @crag.climbs.create!(name: 'Test Fun Route', pitches: 4, trad: true)
 
     visit "/crags/#{@crag.id}/climbs"
-    # save_and_open_page
+
     expect(page).to have_content('Test Fun Route')
     expect(page).to have_content('Test Too Big to Flail')
     expect(page).to have_content('Test Good Route')
-    # save_and_open_page
+
     fill_in "Number of pitches", with: "2"
     click_button "Only return records with more than 'number' of pitches"
-    # save_and_open_page
+
     expect(current_path).to eq("/crags/#{@crag.id}/climbs")
 
     expect(page).to have_content('Test Fun Route')

@@ -7,7 +7,6 @@ RSpec.describe 'Crags update' do
 
   it 'links to the update crag page from the crag show' do
     visit "/crags/#{@crag.id}"
-    # save_and_open_page
 
     click_link 'Update Crag'
     expect(current_path).to eq("/crags/#{@crag.id}/edit")

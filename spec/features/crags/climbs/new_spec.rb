@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Crags new' do
+RSpec.describe 'Crag climbs new' do
   before :each do
     @crag = Crag.create!(name: 'Test Smith Rock', year_round: true, outhouses: 2)
     @good_route = @crag.climbs.create!(name: 'Test Good Route', pitches: 1, trad: false)

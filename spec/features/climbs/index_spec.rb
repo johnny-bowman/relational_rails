@@ -1,7 +1,5 @@
 require 'rails_helper'
-# As a visitor
-# When I visit the child index
-# Then I only see records where the boolean column is `true`
+
 RSpec.describe 'the climbs index page' do
   before :each do
     @crag = Crag.create!(name: 'Test Smith Rock', year_round: true, outhouses: 2)
