@@ -27,7 +27,6 @@ RSpec.describe 'the crags show page' do
     click_link 'All Climbs'
     expect(current_path).to eq('/climbs')
 
-    expect(page).to have_content('Test Fun Route')
     expect(page).to have_content('Test Long Route')
     expect(page).to_not have_content('Test Smith Rock')
   end

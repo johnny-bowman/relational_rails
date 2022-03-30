@@ -4,7 +4,7 @@
 
 <h1>Climbs</h1>
 <% @climbs.each do |climb| %>
-<h2><%= climb.name %></h2>
+<h2><%= climb.name %> <%= link_to "Update Climb", "/climbs/#{climb.id}/edit", method: :get %></h2>
 <h3>Pitches:</h3><p><%= climb.pitches %></p>
 <h3>Trad?</h3><p><%= climb.trad %></p>
 <% end %>

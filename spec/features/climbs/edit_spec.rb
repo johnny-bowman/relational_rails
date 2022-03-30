@@ -12,13 +12,27 @@ require 'rails_helper'
 RSpec.describe 'Climbs update' do
   before :each do
     @crag = Crag.create!(name: 'Test Smith Rock', year_round: true, outhouses: 2)
-    @climb = @crag.climbs.create!(name: 'Test Fun Route', pitches: 1, trad: false)
+    @climb = @crag.climbs.create!(name: 'Test Fun Route', pitches: 1, trad: true)
   end
 
-  it 'links to the update crag page from the crag show' do
+  it 'links to the update climb page from the crag show' do
     visit "/climbs/#{@climb.id}"
 
     click_button 'Update Climb'
+    expect(current_path).to eq("/climbs/#{@climb.id}/edit")
+  end
+
+  it 'links to the update climb page from the crag index' do
+    visit "/climbs"
+
+    click_link 'Update Climb'
+    expect(current_path).to eq("/climbs/#{@climb.id}/edit")
+  end
+
+  it 'links to the update climb page from the crag_climbs index' do
+    visit "/crags/#{@crag.id}/climbs"
+
+    click_link 'Update Climb'
     expect(current_path).to eq("/climbs/#{@climb.id}/edit")
   end
 

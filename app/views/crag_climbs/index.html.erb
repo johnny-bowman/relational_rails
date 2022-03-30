@@ -4,9 +4,10 @@
 </ul>
 
 <% @climbs.each do |climb| %>
-  <h2><%= climb.name %></h2>
+  <h2><%= climb.name %><%= link_to "Update Climb", "/climbs/#{climb.id}/edit", method: :get %></h2>
   <p><strong>Pitches:</strong></p><%= climb.pitches %>
   <p><strong>Trad:</strong></p><%= climb.trad %>
 <% end %>
 
+<%= link_to "Sort Climbs Alphabetically", "/crags/#{@crag.id}/climbs?order=alphabetical", method: :get %>
 <%= button_to "Create Climb", "/crags/#{@crag.id}/climbs/new", method: :get%>

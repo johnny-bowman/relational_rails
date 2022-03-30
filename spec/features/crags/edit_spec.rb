@@ -1,14 +1,4 @@
 require 'rails_helper'
-# As a visitor
-# When I visit a parent show page
-# Then I see a link to update the parent "Update Parent"
-# When I click the link "Update Parent"
-# Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
-# When I fill out the form with updated information
-# And I click the button to submit the form
-# Then a `PATCH` request is sent to '/parents/:id',
-# the parent's info is updated,
-# and I am redirected to the Parent's Show page where I see the parent's updated info
 
 RSpec.describe 'Crags update' do
   before :each do
@@ -20,6 +10,13 @@ RSpec.describe 'Crags update' do
     # save_and_open_page
 
     click_button 'Update Crag'
+    expect(current_path).to eq("/crags/#{@crag.id}/edit")
+  end
+
+  it "links to the update crag page from the crag index" do
+    visit "/crags"
+
+    click_link 'Update Crag'
     expect(current_path).to eq("/crags/#{@crag.id}/edit")
   end
 

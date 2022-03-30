@@ -1,6 +1,6 @@
 class ClimbsController < ApplicationController
   def index
-    @climbs = Climb.where(trad: true)
+    @climbs = Climb.trad_true?
   end
 
   def show

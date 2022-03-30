@@ -1,7 +1,11 @@
 class CragClimbsController < ApplicationController
   def index
     @crag = Crag.find(params[:crag_id])
-    @climbs = @crag.climbs
+    if params[:order]
+      @climbs = @crag.climbs.sort_alphabetically
+    else
+      @climbs = @crag.climbs
+    end
   end
 
   def new
